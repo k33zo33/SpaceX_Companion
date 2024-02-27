@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="please_wait">Molimo pričekajte...</string>
+    <string name="no_connection">Nema internet veze!</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_made_by_k33zo">Aplikaciju napravio k33zo</string>
+    <string name="items">Items</string>
+    <string name="about">O aplikaciji</string>
+    <string name="launches">Lansiranja</string>
+    <string name="exit">Izlaz</string>
+    <string name="do_you_really_want_to_close_the_application">Želite li doista zatvoriti aplikaciju?</string>
+    <string name="cancel">Prekid</string>
+    <string name="date">Datum</string>
+    <string name="name">Ime</string>
+    <string name="details">Detalji</string>
+    <string name="title">Naslov</string>
+    <string name="missions">Misije</string>
+    <string name="website">Web stranica</string>
+    <string name="description">Opis</string>
+    <string name="rockets">Rakete</string>
+    <string name="type">Tip</string>
+    <string name="active">Aktivna:</string>
+    <string name="country">Država</string>
+    <string name="company">Tvrka</string>
+    <string name="share_mission">Podijeli misiju</string>
+    <string name="share_launch_item">Podijeli lansiranje</string>
+    <string name="launch_pads">Lansirna rampa</string>
+    <string name="location">Lokacija</string>
+    <string name="region">Regija</string>
+    <string name="settings">Postavke</string>
+    <string name="pads">Rampe</string>
+    <string name="choose_language">Odaberite jezik:</string>
+    <string name="success">Uspjeh:</string>
+    <string name="map">Karta</string>
+    <string name="password">Lozinka</string>
+    <string name="confirm_password">Potvrdi lozinku</string>
+    <string name="login">Prijava</string>
+    <string name="sign_up">Registracija</string>
+    <string name="already_have_an_account">Već imam račun</string>
+    <string name="logout">Odjava</string>
+    <string name="upload_profile_image">Postavi profilnu sliku</string>
+    <string name="select_picture">Odaberi sliku</string>
+    <string name="upload_picture">Postavi sliku</string>
+
+</resources>

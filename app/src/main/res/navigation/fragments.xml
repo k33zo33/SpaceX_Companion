@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/menuLaunches"
+    android:id="@+id/fragments">
+
+    <fragment
+        android:id="@+id/menuLaunches"
+        android:name="hr.k33zo.spacex.fragment.LaunchesFragment"
+        android:label="@string/launches"/>
+    <fragment
+        android:id="@+id/menuMissions"
+        android:name="hr.k33zo.spacex.fragment.MissionsFragment"
+        android:label="@string/missions" />
+
+    <fragment
+        android:id="@+id/menuRockets"
+        android:name="hr.k33zo.spacex.fragment.RocketFragment"
+        android:label="@string/rockets" />
+
+    <fragment
+        android:id="@+id/menuLaunchPads"
+        android:name="hr.k33zo.spacex.fragment.LaunchPadsFragment"
+        android:label="@string/launch_pads"/>
+
+    <fragment
+        android:id="@+id/menuSettings"
+        android:name="hr.k33zo.spacex.fragment.SettingsFragment"
+        android:label="@string/settings"/>
+
+    <fragment
+        android:id="@+id/menuAbout"
+        android:name="hr.k33zo.spacex.fragment.AboutFragment"
+        android:label="@string/about"/>
+
+    <fragment
+        android:id="@+id/menuLogout"
+        android:name="hr.k33zo.spacex.fragment.LogoutFragment"
+        android:label="@string/logout"/>
+
+
+
+
+
+</navigation>
