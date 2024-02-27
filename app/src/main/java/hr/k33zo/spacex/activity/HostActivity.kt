@@ -2,18 +2,30 @@ package hr.k33zo.spacex.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ImageView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.auth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import com.squareup.picasso.Picasso
 import hr.k33zo.spacex.R
 import hr.k33zo.spacex.databinding.ActivityHostBinding
 
 class HostActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityHostBinding
+    private lateinit var auth : FirebaseAuth
+    private lateinit var navigationImage: ImageView
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,6 +35,7 @@ class HostActivity : AppCompatActivity() {
             android.R.anim.fade_out
         )
         binding = ActivityHostBinding.inflate(layoutInflater)
+        auth = Firebase.auth
         setContentView(binding.root)
         initHamburgerMenu()
         initNavigation()
@@ -35,8 +48,10 @@ class HostActivity : AppCompatActivity() {
     }
 
     private fun initNavigation() {
+        val userId = auth.currentUser?.uid.toString()
         val navController = Navigation.findNavController(this, R.id.navigationController)
         NavigationUI.setupWithNavController(binding.navigationView, navController)
+        changeNavigationHeaderImage(userId)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -85,6 +100,36 @@ class HostActivity : AppCompatActivity() {
         finish()
     }
 
+    fun changeNavigationHeaderImage(userId: String){
+        val headerView = binding.navigationView.getHeaderView(0)
+        val navigationImage = headerView.findViewById<ImageView>(R.id.ivNavigationImage)
 
+        val storageReference = FirebaseStorage.getInstance().getReference("images/$userId")
+
+        storageReference.metadata
+            .addOnSuccessListener { metadata ->
+                // Check if metadata exists
+                if (metadata != null) {
+                    // File exists, load profile picture
+                    storageReference.downloadUrl
+                        .addOnSuccessListener { uri ->
+                            Picasso.get().load(uri).into(navigationImage)
+                        }
+                        .addOnFailureListener { exception ->
+                            Log.e("SettingsFragment", "Error downloading image: ${exception.message}")
+                        }
+                } else {
+                    // File does not exist
+                    Log.d("SettingsFragment", "Profile picture does not exist for user $userId")
+                    // Optionally, you can display a placeholder image here
+
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.e("SettingsFragment", "Error checking if image exists: ${exception.message}")
+            }
+
+
+    }
 
 }
