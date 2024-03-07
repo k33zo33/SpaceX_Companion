@@ -45,6 +45,3 @@ Contributing:
 
 Contributions to the project are welcome! If you'd like to contribute, please fork the repository, make your changes, and submit a pull request.
 
-Acknowledgments:
-
-Special thanks to the SpaceX API for providing valuable data and resources for this project.
